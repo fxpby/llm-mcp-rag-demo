@@ -13,6 +13,16 @@
 - 安装 uv
 - 大语言模型（不一定是 openAI）
 
+根目录`.env` 文件:
+
+```env
+OPENAI_API_KEY=xxxxxx
+OPENAI_BASE_URL=https://openrouter.ai/api/v1
+MODEL_NAME=openai/gpt-4o-mini
+EMBEDDING_KEY=xxxxxx
+EMBEDDING_BASE_URL=https://api.siliconflow.cn/v1
+```
+
 ## 开始运行
 
 ```js
