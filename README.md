@@ -18,9 +18,10 @@
 ```env
 OPENAI_API_KEY=xxxxxx
 OPENAI_BASE_URL=https://openrouter.ai/api/v1
-MODEL_NAME=openai/gpt-4o-mini
+LLM_MODEL=openai/gpt-4o-mini
 EMBEDDING_KEY=xxxxxx
 EMBEDDING_BASE_URL=https://api.siliconflow.cn/v1
+EMBEDDING_MODEL=BAAI/bge-m3
 ```
 
 硅基流动邀请码：qh4aiuos
