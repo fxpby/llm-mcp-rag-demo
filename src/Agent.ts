@@ -7,7 +7,7 @@ export default class Agent {
   private llm: ChatOpenAI | null = null;
   private model: string;
   // 系统提示词
-  private systemPrompt;
+  private systemPrompt: string;
   // RAG context
   private context: string;
 
@@ -17,7 +17,7 @@ export default class Agent {
     systemPrompt: string = "",
     context: string = ""
   ) {
-    this.mcpClients = [];
+    this.mcpClients = mcpClients;
     this.model = model;
     this.systemPrompt = systemPrompt;
     this.context = context;
@@ -25,7 +25,6 @@ export default class Agent {
 
   public async init() {
     logTitle("🛫 初始化 LLM 和 Tools 🛫");
-    this.llm = new ChatOpenAI(this.model, this.systemPrompt);
     for (const mcpClient of this.mcpClients) {
       await mcpClient.init();
     }
