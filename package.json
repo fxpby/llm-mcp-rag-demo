@@ -23,5 +23,11 @@
     "onlyBuiltDependencies": [
       "esbuild"
     ]
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.2",
+    "chalk": "^5.5.0",
+    "dotenv": "^17.2.1",
+    "openai": "^5.12.2"
   }
 }
