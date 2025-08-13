@@ -49,6 +49,7 @@ async function testRAG() {
   await agent.init();
   const response = await agent.invoke(prompt);
   console.log("response: ", response);
+  await agent.close();
 }
 
 async function retrieveContext(prompt: string) {
