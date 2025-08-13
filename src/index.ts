@@ -31,9 +31,9 @@ async function testMCPClient() {
 async function testAgent() {
   const agent = new Agent(modelName, [fetchMcp, fileMcp]);
   await agent.init();
-  const URL = "https://news.ycombinator.com/";
+  const URL = "https://jsonplaceholder.typicode.com/users";
 
-  const question = `爬取 ${URL} 中的内容信息，并且总结后保存到${currentDir}的 news.md 文件中`;
+  const question = `爬取 ${URL} 中的内容信息，在${currentDir}/knowledge 中，每个人创建一个 md 文件，保存基本信息`;
   const response = await agent.invoke(question);
   console.log("response: ", response);
 }
