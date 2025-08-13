@@ -9,18 +9,25 @@
 
 ## 环境准备
 
-- 安装 node， 版本 > 18
-- 安装 uv
-- 大语言模型（不一定是 openAI）
+- 环境安装 node， 版本 > 18
+- 环境安装 uv
+- LLM 模型（不一定是 openAI，免费的 glm-4.5 等也很香）
+- RAG 模型（自己用的是硅基流动免费的 BAAI/bge-m3）
 
 根目录`.env` 文件:
 
 ```env
+# LLM api key
 OPENAI_API_KEY=xxxxxx
+# LLM base url
 OPENAI_BASE_URL=https://openrouter.ai/api/v1
+# LLM model
 LLM_MODEL=openai/gpt-4o-mini
+# RAG api key
 EMBEDDING_KEY=xxxxxx
+# RAG base url
 EMBEDDING_BASE_URL=https://api.siliconflow.cn/v1
+# RAG model
 EMBEDDING_MODEL=BAAI/bge-m3
 ```
 
