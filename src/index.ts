@@ -71,4 +71,6 @@ async function retrieveContext(prompt: string) {
   return context;
 }
 
+// 需先执行 testAgent() 爬取数据，再根据数据内容，找到目标对象后，修改 testRAG 中 prompt 内容，执行 testRAG() 检索增强生成内容
+// testAgent()
 testRAG();
