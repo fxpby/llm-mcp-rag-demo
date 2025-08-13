@@ -37,7 +37,7 @@ export default class MCPClient {
   }
 
   public async callTool(name: string, params: Record<string, any>) {
-    return this.mcp.callTool({ name, arguments: params });
+    return await this.mcp.callTool({ name, arguments: params });
   }
 
   private async connectToServer() {
