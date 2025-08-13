@@ -38,3 +38,4 @@ pnpm run dev
 - [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) - MCP 文档
 - [OpenAI API 文档](https://platform.openai.com/docs/api-reference) - OpenAI API 文档
 - [bigmodel 配置文档](https://docs.bigmodel.cn/cn/guide/develop/openai/introduction#%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE) - bigmodel 配置文档
+- [BAAI/bge-m3 API 文档](https://docs.siliconflow.cn/cn/api-reference/embeddings/create-embeddings) - RAG 模型文档
