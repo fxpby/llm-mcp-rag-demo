@@ -19,12 +19,12 @@ export default class ChatOpenAI {
   // openAI 消息数组
   private messages: OpenAI.Chat.ChatCompletionMessageParam[] = [];
   // MCP tools
-  private tools: Tool[] = [];
+  private tools: Tool[];
 
   constructor(
     model: string,
     systemPrompt: string = "",
-    tools: Tool[],
+    tools: Tool[] = [],
     context: string = ""
   ) {
     this.llm = new OpenAI({
