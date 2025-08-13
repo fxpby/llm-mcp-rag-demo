@@ -36,6 +36,10 @@ export default class MCPClient {
     return this.tools;
   }
 
+  public async callTool(name: string, params: Record<string, any>) {
+    return this.mcp.callTool({ name, arguments: params });
+  }
+
   private async connectToServer() {
     try {
       // Initialize transport and connect to server
