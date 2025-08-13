@@ -23,6 +23,8 @@ EMBEDDING_KEY=xxxxxx
 EMBEDDING_BASE_URL=https://api.siliconflow.cn/v1
 ```
 
+硅基流动邀请码：qh4aiuos
+
 ## 开始运行
 
 ```js
