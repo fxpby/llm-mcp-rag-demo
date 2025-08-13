@@ -3,24 +3,27 @@ export interface VectorStoreItem {
   document: string;
 }
 
-export default class VetorStore {
+export default class VectorStore {
   private vectorStore: VectorStoreItem[];
 
   constructor() {
     this.vectorStore = [];
   }
 
-  async addItem(item: VectorStoreItem) {
-    this.vectorStore.push(item);
+  async addEmbedding(embedding: number[], document: string) {
+    this.vectorStore.push({ embedding, document });
   }
 
-  async search(queryEmbedding: number[], topK: number = 3) {
+  async search(queryEmbedding: number[], topK: number = 3): Promise<string[]> {
     const scored = this.vectorStore.map((item) => ({
       document: item.document,
-      store: this.consineSim(item.embedding, queryEmbedding),
+      score: this.consineSim(queryEmbedding, item.embedding),
     }));
-
-    return scored.sort((a, b) => b.store - a.store).slice(0, topK);
+    const topKDocuments = scored
+      .sort((a, b) => b.score - a.score)
+      .slice(0, topK)
+      .map((item) => item.document);
+    return topKDocuments;
   }
 
   private consineSim(v1: number[], v2: number[]) {
