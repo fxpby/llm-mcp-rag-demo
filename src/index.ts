@@ -1,6 +1,7 @@
 import ChatOpenAI from "./ChatOpenAI";
+import MCPClient from "./MCPClient";
 
-async function main() {
+async function testChatOpenAI() {
   const llm = new ChatOpenAI("glm-4.5");
   const { content, toolCalls } = await llm.chat("你好");
 
@@ -8,4 +9,11 @@ async function main() {
   console.log(toolCalls);
 }
 
-main();
+async function testMCPClient() {
+  const fetchMcp = new MCPClient("fetch", "uvx", ["mcp-server-fetch"]);
+  await fetchMcp.init();
+  const tools = fetchMcp.getTools();
+  console.log("tools: ", tools);
+}
+
+testMCPClient();
