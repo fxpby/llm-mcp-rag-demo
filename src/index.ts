@@ -1,8 +1,21 @@
+import Agent from "./Agent";
 import ChatOpenAI from "./ChatOpenAI";
 import MCPClient from "./MCPClient";
+import path from "path";
+const outPath = path.join(process.cwd(), "output");
+
+const currentDir = process.cwd();
+const modelName = process.env.MODEL_NAME || "";
+
+const fetchMcp = new MCPClient("fetch", "uvx", ["mcp-server-fetch"]);
+const fileMcp = new MCPClient("file", "npx", [
+  "-y",
+  "@modelcontextprotocol/server-filesystem",
+  outPath,
+]);
 
 async function testChatOpenAI() {
-  const llm = new ChatOpenAI("glm-4.5");
+  const llm = new ChatOpenAI(modelName);
   const { content, toolCalls } = await llm.chat("你好");
 
   console.log(content);
@@ -10,10 +23,19 @@ async function testChatOpenAI() {
 }
 
 async function testMCPClient() {
-  const fetchMcp = new MCPClient("fetch", "uvx", ["mcp-server-fetch"]);
   await fetchMcp.init();
   const tools = fetchMcp.getTools();
   console.log("tools: ", tools);
 }
 
-testMCPClient();
+async function testAgent() {
+  const agent = new Agent(modelName, [fetchMcp, fileMcp]);
+  await agent.init();
+  const URL = "https://news.ycombinator.com/";
+
+  const question = `爬取 ${URL} 中的内容信息，并且总结后保存到${currentDir}的 news.md 文件中`;
+  const response = await agent.invoke(question);
+  console.log("response: ", response);
+}
+
+testAgent();
